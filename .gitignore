@@ -1,1 +1,6 @@
 .env
+.idea/
+bin/
+*.log
+*.db
+.air.toml
