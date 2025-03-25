@@ -15,7 +15,7 @@ type RegisterUserRequest struct {
 }
 
 func (app *application) registerUserHandler(w http.ResponseWriter, r *http.Request) {
-	var input = &RegisterUserRequest{}
+	var input RegisterUserRequest
 
 	err := json.NewDecoder(r.Body).Decode(&input)
 	if err != nil {
