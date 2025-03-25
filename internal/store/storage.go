@@ -10,7 +10,8 @@ type Storage struct {
 		Create(ctx context.Context, post *Post) error
 	}
 	Users interface {
-		Create(ctx context.Context) error
+		Create(ctx context.Context, user *User) error
+		GetAll(ctx context.Context) ([]User, error)
 	}
 }
 
