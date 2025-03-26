@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/chi/v5/middleware"
-	"github.com/serhiichyipesh/go-api/internal/store"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
+	"github.com/serhiichyipesh/go-api/internal/store"
 )
 
 type application struct {
@@ -32,6 +33,9 @@ func (app *application) mount() http.Handler {
 		r.Get("/health", app.healthCheckHandler)
 		r.Post("/register", app.registerUserHandler)
 		r.Get("/users", app.getAllUsersHandler)
+		r.Post("/posts", app.createPostHandler)
+		r.Get("/posts", app.getAllPostsHandler)
+		r.Get("/posts/{id}", app.getPostByIDHandler)
 	})
 
 	return r
