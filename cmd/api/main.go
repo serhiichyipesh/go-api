@@ -2,10 +2,11 @@ package main
 
 import (
 	"database/sql"
+	"log"
+
 	"github.com/joho/godotenv"
 	"github.com/serhiichyipesh/go-api/internal/env"
 	"github.com/serhiichyipesh/go-api/internal/store"
-	"log"
 )
 
 func main() {
@@ -26,7 +27,7 @@ func main() {
 	}
 
 	cfg := config{
-		addr: env.GetString("PORT", ":8080"),
+		addr: ":" + env.GetString("PORT", "8080"),
 	}
 
 	storage := store.NewStorage(db)

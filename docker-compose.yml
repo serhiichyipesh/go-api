@@ -1,0 +1,10 @@
+services:
+  go-api:
+    container_name: go-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT}:${PORT}"
+    env_file:
+      - .env
